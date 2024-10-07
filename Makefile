@@ -12,7 +12,7 @@ FORMULA = Formula/os384-cli.rb
 
 # Default target
 .PHONY: deploy
-deploy: tarball checksum update-formula tag release push-tap
+deploy: tag tarball checksum update-formula release push-tap
 	@echo "Deployment process completed successfully."
 
 # Ensure all scripts are executable and create tarball
