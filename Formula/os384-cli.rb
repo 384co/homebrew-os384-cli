@@ -1,5 +1,5 @@
-# Formula/mydeno.rb
-class Mydeno < Formula
+# Formula/os384-cli.rb
+class Os384Cli < Formula
     desc "os384 command line utilities"
     homepage "https://github.com/384co/homebrew-os384-cli"
     url "https://github.com//homebrew-os384-cli/archive/refs/tags/1.0.30.tar.gz"
