@@ -3,7 +3,7 @@
 # Variables
 VERSION ?= $(shell git describe --tags --abbrev=0)
 TARBALL = homebrew-os384-cli-$(VERSION).tar.gz
-GITHUB_USER := $(GITHUB_USERNAME)
+GITHUB_USER := $(GITHUB_ACCOUNT)
 SCRIPTS_DIR = scripts
 SCRIPTS_REPO = homebrew-os384-cli
 RELEASE_DIR = tarballs
