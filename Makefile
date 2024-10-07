@@ -3,10 +3,10 @@
 # Variables
 VERSION ?= $(shell git describe --tags --abbrev=0)
 TARBALL = homebrew-os384-cli-$(VERSION).tar.gz
-GITHUB_USER := $(GITHUB_USERNAME)      # Replace with your GitHub username or organization
+GITHUB_USER := $(GITHUB_USERNAME)
 SCRIPTS_DIR = scripts
 SCRIPTS_REPO = homebrew-os384-cli
-RELEASE_DIR = releases
+RELEASE_DIR = tarballs
 TAP_REPO = homebrew-os384-cli
 FORMULA = Formula/os384-cli.rb
 
@@ -21,6 +21,8 @@ tarball:
 	@echo "Creating tarball $(TARBALL)..."
 	@tar -czf $(TARBALL) $(SCRIPTS_DIR)
 	@mv $(TARBALL) $(RELEASE_DIR)
+	# @mkdir -p $(RELEASE_DIR)
+	# @git archive --format=tar.gz --prefix=$(SCRIPTS_REPO)-$(VERSION)/ -o $(RELEASE_DIR)/$(TARBALL) v$(VERSION)
 
 # Compute SHA256 checksum of the tarball
 .PHONY: checksum
