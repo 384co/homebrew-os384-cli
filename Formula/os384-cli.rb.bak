@@ -2,8 +2,8 @@
 class Mydeno < Formula
     desc "os384 command line utilities"
     homepage "https://github.com/384co/homebrew-os384-cli"
-    url "https://github.com/      /homebrew-os384-cli      /archive/refs/tags/vv1.0.0.tar.gz"
-    sha256 "INSERT_SHA256_CHECKSUM_HERE"
+    url "https://github.com/      /homebrew-os384-cli      /archive/refs/tags/v1.0.0.tar.gz"
+    sha256 ""
     license "MIT"
   
     depends_on "deno"
