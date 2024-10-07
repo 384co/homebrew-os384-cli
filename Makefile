@@ -4,10 +4,11 @@
 VERSION ?= $(shell git describe --tags --abbrev=0)
 TARBALL = homebrew-os384-cli-$(VERSION).tar.gz
 GITHUB_USER := $(GITHUB_USERNAME)      # Replace with your GitHub username or organization
-SCRIPTS_DIR = scripts                  # Directory containing the Deno scripts
-SCRIPTS_REPO = homebrew-os384-cli      # Repository containing the Deno scripts
-TAP_REPO = homebrew-os384-cli          # Homebrew tap repository name
-FORMULA = Formula/os384-cli.rb         # Path to the Homebrew formula
+SCRIPTS_DIR = scripts
+SCRIPTS_REPO = homebrew-os384-cli
+RELEASE_DIR = releases
+TAP_REPO = homebrew-os384-cli
+FORMULA = Formula/os384-cli.rb
 
 # Default target
 .PHONY: deploy
@@ -19,6 +20,7 @@ deploy: tarball checksum update-formula tag release push-tap
 tarball:
 	@echo "Creating tarball $(TARBALL)..."
 	@tar -czf $(TARBALL) $(SCRIPTS_DIR)
+	@mv $(TARBALL) $(RELEASE_DIR)
 
 # Compute SHA256 checksum of the tarball
 .PHONY: checksum
@@ -40,16 +42,15 @@ update-formula:
 # Tag the repository with the new version
 .PHONY: tag
 tag:
-	@echo "Tagging the repository with $(VERSION)..."
-	@git tag $(VERSION)
+	@echo "Making sure to push tag the repository with $(VERSION)..."
+	# @git tag $(VERSION)
 	@git push origin $(VERSION)
 
 # Create a GitHub release using GitHub CLI
 .PHONY: release
 release:
 	@echo "Creating GitHub release v$(VERSION)..."
-	@gh release create $(VERSION) $(TARBALL) -t "$(VERSION)" -n "Release $(VERSION)"
-	@echo "GitHub release created."
+	gh release create $(VERSION) "$(RELEASE_DIR)/$(TARBALL)" -t "$(VERSION)" -n "Release $(VERSION)"
 
 # Push the updated formula to the Homebrew tap repository
 .PHONY: push-tap
