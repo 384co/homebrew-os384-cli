@@ -33,22 +33,22 @@ checksum:
 update-formula:
 	@echo "Updating Homebrew formula with version $(VERSION) and new checksum..."
 	@sha256=$(cat SHA256SUM)
-	@sed -i.bak "s|url \".*\"|url \"https://github.com/$(GITHUB_USER)/$(SCRIPTS_REPO)/archive/refs/tags/v$(VERSION).tar.gz\"|" $(FORMULA)
+	@sed -i.bak "s|url \".*\"|url \"https://github.com/$(GITHUB_USER)/$(SCRIPTS_REPO)/archive/refs/tags/$(VERSION).tar.gz\"|" $(FORMULA)
 	@sed -i.bak "s|sha256 \".*\"|sha256 \"$$sha256\"|" $(FORMULA)
 	# @rm $(FORMULA).bak
 
 # Tag the repository with the new version
 .PHONY: tag
 tag:
-	@echo "Tagging the repository with v$(VERSION)..."
-	@git tag v$(VERSION)
-	@git push origin v$(VERSION)
+	@echo "Tagging the repository with $(VERSION)..."
+	@git tag $(VERSION)
+	@git push origin $(VERSION)
 
 # Create a GitHub release using GitHub CLI
 .PHONY: release
 release:
 	@echo "Creating GitHub release v$(VERSION)..."
-	@gh release create v$(VERSION) $(TARBALL) -t "v$(VERSION)" -n "Release v$(VERSION)"
+	@gh release create $(VERSION) $(TARBALL) -t "$(VERSION)" -n "Release $(VERSION)"
 	@echo "GitHub release created."
 
 # Push the updated formula to the Homebrew tap repository
