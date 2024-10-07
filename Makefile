@@ -46,7 +46,7 @@ tag:
 	# @git tag $(VERSION)
 	# @git push origin $(VERSION)
 	# git add -A && git commit -m "Release $(VERSION)" && git tag -a $(VERSION) -m "Release $(VERSION)" && git push origin main && git push origin $(VERSION)
-	git add -A && git commit -m "Release $(VERSION)" && git push
+	git add -A && git commit -m "Release $(VERSION)" && git push origin $(VERSION)
 
 check-gh-auth:
 	@gh auth status || (echo "GitHub CLI not authenticated. Please run 'gh auth login'." && exit 1)
