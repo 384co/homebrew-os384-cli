@@ -3,7 +3,7 @@ class Os384Cli < Formula
     desc "os384 command line utilities"
     homepage "https://github.com/384co/homebrew-os384-cli"
     url "https://github.com/384co/homebrew-os384-cli/archive/refs/tags/1.0.36.tar.gz"
-    sha256 "bf09f7094e9260ca4d5c2e6b7bf23f431322136c66252918536c5b6dc992b408"
+    sha256 "5ce55206db4dee07156ba24671831c7ca97c5e0d60e717eb19db7f35ec617b13"
     license "MIT"
   
     depends_on "deno"
