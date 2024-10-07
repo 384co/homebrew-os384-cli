@@ -28,8 +28,7 @@ tarball:
 .PHONY: checksum
 checksum:
 	@echo "Computing SHA256 checksum..."
-	sha256=$(shasum -a 256 '$$(RELEASE_DIR)/$$(TARBALL)' | awk '{print $$1}')
-	@echo $$sha256 > SHA256SUM
+	sha256=$(shasum -a 256 "$(RELEASE_DIR)/$(TARBALL)" | awk '{print $$1}'); echo $$sha256 > SHA256SUM
 	@echo "Checksum saved to SHA256SUM."
 
 # Update the Homebrew formula with the new URL and checksum
