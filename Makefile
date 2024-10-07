@@ -34,7 +34,7 @@ checksum:
 .PHONY: update-formula
 update-formula:
 	@echo "Updating Homebrew formula with version $(VERSION) and new checksum..."
-	sha256=$(cat SHA256SUM)
+	sha256=$(shell cat SHA256SUM)
 	sed -i.bak "s|url \".*\"|url \"https://github.com/$(GITHUB_USER)/$(SCRIPTS_REPO)/archive/refs/tags/$(VERSION).tar.gz\"|" $(FORMULA)
 	sed -i.bak "s|sha256 \".*\"|sha256 \"$$sha256\"|" $(FORMULA)
 	# @rm $(FORMULA).bak
