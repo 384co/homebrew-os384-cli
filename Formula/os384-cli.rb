@@ -2,7 +2,7 @@
 class Mydeno < Formula
     desc "os384 command line utilities"
     homepage "https://github.com/384co/homebrew-os384-cli"
-    url "https://github.com//homebrew-os384-cli/archive/refs/tags/1.0.12.tar.gz"
+    url "https://github.com//homebrew-os384-cli/archive/refs/tags/1.0.16.tar.gz"
     sha256 ""
     license "MIT"
   

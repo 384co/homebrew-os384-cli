@@ -48,9 +48,12 @@ tag:
 	# @git tag $(VERSION)
 	@git push origin $(VERSION)
 
+check-gh-auth:
+	@gh auth status || (echo "GitHub CLI not authenticated. Please run 'gh auth login'." && exit 1)
+
 # Create a GitHub release using GitHub CLI
 .PHONY: release
-release:
+release: check-gh-auth
 	@echo "Creating GitHub release v$(VERSION)..."
 	gh release create $(VERSION) "$(RELEASE_DIR)/$(TARBALL)" -t "$(VERSION)" -n "Release $(VERSION)"
 
