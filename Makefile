@@ -19,8 +19,8 @@ deploy: tag tarball checksum update-formula release push-tap
 .PHONY: tarball
 tarball:
 	@echo "Creating tarball $(TARBALL)..."
-	@tar -czf $(TARBALL) $(SCRIPTS_DIR)
-	@mv $(TARBALL) $(RELEASE_DIR)
+	tar -czf $(TARBALL) $(SCRIPTS_DIR)
+	mv $(TARBALL) $(RELEASE_DIR)
 	# @mkdir -p $(RELEASE_DIR)
 	# @git archive --format=tar.gz --prefix=$(SCRIPTS_REPO)-$(VERSION)/ -o $(RELEASE_DIR)/$(TARBALL) v$(VERSION)
 
@@ -60,7 +60,7 @@ release: check-gh-auth
 .PHONY: push-tap
 push-tap:
 	@echo "Pushing updated formula to Homebrew tap..."
-	@git add $(FORMULA)
-	@git commit -m "Update os384-cli to v$(VERSION)"
-	@git push origin main
+	git add $(FORMULA)
+	git commit -m "Update os384-cli to $(VERSION)"
+	git push origin main
 
