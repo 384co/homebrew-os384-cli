@@ -27,25 +27,25 @@ tarball:
 # Compute SHA256 checksum of the tarball
 .PHONY: checksum
 checksum:
-	@echo "Computing SHA256 checksum..."
+	@echo "Computing SHA256 checksum into SHA256SUM file..."
 	shasum -a 256 '$(RELEASE_DIR)/$(TARBALL)' | awk '{print $$1}' > SHA256SUM
-	@echo "Checksum saved to SHA256SUM."
 
 # Update the Homebrew formula with the new URL and checksum
 .PHONY: update-formula
 update-formula:
 	@echo "Updating Homebrew formula with version $(VERSION) and new checksum..."
-	@sha256=$(cat SHA256SUM)
-	@sed -i.bak "s|url \".*\"|url \"https://github.com/$(GITHUB_USER)/$(SCRIPTS_REPO)/archive/refs/tags/$(VERSION).tar.gz\"|" $(FORMULA)
-	@sed -i.bak "s|sha256 \".*\"|sha256 \"$$sha256\"|" $(FORMULA)
+	sha256=$(cat SHA256SUM)
+	sed -i.bak "s|url \".*\"|url \"https://github.com/$(GITHUB_USER)/$(SCRIPTS_REPO)/archive/refs/tags/$(VERSION).tar.gz\"|" $(FORMULA)
+	sed -i.bak "s|sha256 \".*\"|sha256 \"$$sha256\"|" $(FORMULA)
 	# @rm $(FORMULA).bak
 
-# Tag the repository with the new version
+# Make sure this tag is pushed etc; you run 'git tag <...>' manually
 .PHONY: tag
 tag:
 	@echo "Making sure to push tag the repository with $(VERSION)..."
 	# @git tag $(VERSION)
-	@git push origin $(VERSION)
+	# @git push origin $(VERSION)
+	git add -A && git commit -m "Release $(VERSION)" && git tag -a $(VERSION) -m "Release $(VERSION)" && git push origin main && git push origin $(VERSION)
 
 check-gh-auth:
 	@gh auth status || (echo "GitHub CLI not authenticated. Please run 'gh auth login'." && exit 1)

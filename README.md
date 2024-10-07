@@ -3,7 +3,7 @@ Command line interface to os384 servers (public).
 
 ## Installation
 ```zsh
-    brew tap os384/os384-cli
+    brew tap 384co/os384-cli
     brew install
 ```
 
