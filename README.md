@@ -18,8 +18,7 @@ Command line interface to os384 servers (public).
     # do your thing with the scripts
 
     # update tag
-    git tag -a 1.0.42 -m "version 0.0.1"
-    git push origin 1.0.42
+    git tag 1.0.42
 
     # you can then make it
     make
