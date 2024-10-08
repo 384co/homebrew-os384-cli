@@ -3,6 +3,8 @@
 import { Command } from "https://deno.land/x/cliffy/command/mod.ts";
 import { sbCrypto } from "https://c3.384.dev/api/v2/page/7938Nx0w/384.esm.js"
 
+console.log("HELLO")
+
 await new Command()
     .name("generate.random.string.ts")
     .version("1.0.0")
