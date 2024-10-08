@@ -26,8 +26,9 @@ Command line interface to os384 servers (public).
 
     # and install it
     brew install os384-cli
-    
+
     # if you've modified the Formula, you will need to untap and retap
     brew untap 384co/os384-cli
     brew tap 384co/os384-cli
 ```
+
