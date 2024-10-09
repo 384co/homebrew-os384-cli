@@ -19,7 +19,7 @@ deploy: tag tarball checksum update-formula release push-tap
 .PHONY: tarball
 tarball:
 	@echo "Creating tarball $(TARBALL)..."
-	tar -czf $(TARBALL) $(SCRIPTS_DIR)
+	tar -czf --exclude=$(RELEASE_DIR) $(TARBALL) $(SCRIPTS_DIR)
 	mv $(TARBALL) $(RELEASE_DIR)
 	# @mkdir -p $(RELEASE_DIR)
 	# @git archive --format=tar.gz --prefix=$(SCRIPTS_REPO)-$(VERSION)/ -o $(RELEASE_DIR)/$(TARBALL) v$(VERSION)
