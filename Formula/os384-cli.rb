@@ -20,13 +20,13 @@ class Os384Cli < Formula
         bin.install file => new_name
       end
     
-        # Ensure scripts have executable permissions
-        chmod 0755, Dir["#{bin}/*.ts"]
-      end
+      # Ensure scripts have executable permissions
+      chmod 0755, Dir["#{bin}/*.ts"]
 
       # Also install the convenience script, which doesn't have a suffix
       bin.install "src/os384"
       chmod 0755, "#{bin}/os384"
+    end
 
     def uninstall
       # Loop over each matching filename
@@ -41,6 +41,7 @@ class Os384Cli < Formula
 
       # Also remove the convenience script, which doesn't have a suffix
       rm_f bin/os384
+    end
   
     #test do
     #  # Replace 'script1' and the expected output as per your script's functionality

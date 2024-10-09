@@ -26,7 +26,7 @@ class Os384Cli < Formula
       # Also install the convenience script, which doesn't have a suffix
       bin.install "src/os384"
       chmod 0755, "#{bin}/os384"
-      end
+    end
 
     def uninstall
       # Loop over each matching filename
@@ -41,7 +41,7 @@ class Os384Cli < Formula
 
       # Also remove the convenience script, which doesn't have a suffix
       rm_f bin/os384
-      end
+    end
   
     #test do
     #  # Replace 'script1' and the expected output as per your script's functionality
