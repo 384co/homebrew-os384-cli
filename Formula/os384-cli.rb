@@ -1,9 +1,10 @@
 # Formula/os384-cli.rb
 class Os384Cli < Formula
     desc "os384 command line utilities"
-    homepage "https://github.com/384co/homebrew-os384-cli"
-    url "https://github.com/384co/homebrew-os384-cli/archive/refs/tags/1.0.37.tar.gz"
-    sha256 "07ab852a0ac5972946f55247566d8e968e1e754b93057929063d0cfc0eb2e0fb"
+    homepage "https://384.co/"
+    version "0.0.9"
+    url "https://github.com/384co/384-cli-tools/archive/refs/tags/0.0.9.tar.gz"
+    sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     license "MIT"
   
     depends_on "deno"
@@ -19,7 +20,7 @@ class Os384Cli < Formula
     test do
       # Replace 'script1' and the expected output as per your script's functionality
       output = shell_output("#{bin}/script1 --version")
-      assert_match "1.0.0", output
+      assert_match "0.0.9", output
     end
   end
   
