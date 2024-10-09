@@ -1,0 +1,26 @@
+# Formula/os384-cli.rb
+class Os384Cli < Formula
+    desc "os384 command line utilities"
+    homepage "https://384.co/"
+    version {{ VERSION }}
+    url {{ URL }}
+    sha256 {{ SHA256 }}
+    license "MIT"
+  
+    depends_on "deno"
+  
+    def install
+        # Directly install executable .ts scripts into bin
+        bin.install Dir["scripts/*.ts"]
+    
+        # Ensure scripts have executable permissions
+        chmod 0755, Dir["#{bin}/*.ts"]
+      end    
+  
+    test do
+      # Replace 'script1' and the expected output as per your script's functionality
+      output = shell_output("#{bin}/script1 --version")
+      assert_match {{ VERSION }}, output
+    end
+  end
+  
