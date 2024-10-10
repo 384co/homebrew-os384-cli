@@ -17,8 +17,8 @@ class Os384Cli < Formula
       chmod 0755, Dir["#{bin}/*.ts"]
 
       # Also install the convenience script, which doesn't have a suffix
-      bin.install "src/os384"
-      chmod 0755, "#{bin}/os384"
+      bin.install "src/384"
+      chmod 0755, "#{bin}/384"
     end
 
     #test do
