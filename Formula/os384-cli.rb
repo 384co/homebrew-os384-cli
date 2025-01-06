@@ -2,9 +2,9 @@
 class Os384Cli < Formula
     desc "os384 command line utilities"
     homepage "https://384.co/"
-    version "0.2.6"
-    url "https://github.com/384co/384-cli-tools/archive/refs/tags/0.2.6.tar.gz"
-    sha256 "279d6bedb8afc3c938447b35eb2c8cfa5f6a78720f15c1677cceba7171ab911e"
+    version "0.2.7"
+    url "https://github.com/384co/384-cli-tools/archive/refs/tags/0.2.7.tar.gz"
+    sha256 "9075b039613f84eae1da75f09ba267a2114b131b4d414d34188e845337487789"
     license "GPL-3.0-only"
   
     depends_on "deno"
@@ -12,6 +12,9 @@ class Os384Cli < Formula
     def install
       # Directly install executable .ts scripts into bin
       bin.install Dir["src/*.ts"]
+    
+      # Add lib384
+      bin.install "src/384.esm.js"
     
       # Ensure scripts have executable permissions
       chmod 0755, Dir["#{bin}/*.ts"]
@@ -24,7 +27,7 @@ class Os384Cli < Formula
     #test do
     #  # Replace 'script1' and the expected output as per your script's functionality
     #  output = shell_output("#{bin}/script1 --version")
-    #  assert_match "0.2.6", output
+    #  assert_match "0.2.7", output
     #end
   end
   
