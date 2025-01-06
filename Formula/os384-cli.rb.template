@@ -13,6 +13,9 @@ class Os384Cli < Formula
       # Directly install executable .ts scripts into bin
       bin.install Dir["src/*.ts"]
     
+      # Add lib384
+      bin.install "src/384.esm.js"
+    
       # Ensure scripts have executable permissions
       chmod 0755, Dir["#{bin}/*.ts"]
 
