@@ -2,9 +2,9 @@
 class Os384Cli < Formula
     desc "os384 command line utilities"
     homepage "https://384.co/"
-    version "0.2.7"
-    url "https://github.com/384co/384-cli-tools/archive/refs/tags/0.2.7.tar.gz"
-    sha256 "9075b039613f84eae1da75f09ba267a2114b131b4d414d34188e845337487789"
+    version "0.2.8"
+    url "https://github.com/384co/384-cli-tools/archive/refs/tags/0.2.8.tar.gz"
+    sha256 "137d156fc61a10ab9c09dd61a29346249a45dcd2dbc2e926417721c1f8ba6771"
     license "GPL-3.0-only"
   
     depends_on "deno"
@@ -27,7 +27,7 @@ class Os384Cli < Formula
     #test do
     #  # Replace 'script1' and the expected output as per your script's functionality
     #  output = shell_output("#{bin}/script1 --version")
-    #  assert_match "0.2.7", output
+    #  assert_match "0.2.8", output
     #end
   end
   
